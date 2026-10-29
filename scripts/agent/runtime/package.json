@@ -1,0 +1,8 @@
+{
+  "name": "taskly-test-agent-runtime",
+  "private": true,
+  "description": "Pinned Claude Code CLI for the PR test agent workflow.",
+  "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.296"
+  }
+}
