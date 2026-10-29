@@ -1,0 +1,4 @@
+# The agent, its gate and the workflows need an owner's review
+/.github/ @nott-po
+/.claude/ @nott-po
+/scripts/agent/ @nott-po
