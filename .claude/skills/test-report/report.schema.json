@@ -1,0 +1,126 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision",
+    "summary",
+    "files",
+    "review",
+    "skillsUsed",
+    "suspectedBugs"
+  ],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": [
+        "tests_written",
+        "no_tests_needed",
+        "blocked"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "files": {
+      "type": "array",
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "action",
+          "testFile",
+          "preservesBehaviour",
+          "reason"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "created",
+              "updated",
+              "deleted",
+              "unchanged",
+              "skipped"
+            ]
+          },
+          "testFile": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "preservesBehaviour": {
+            "type": "boolean",
+            "description": "True only when the change to this source keeps its observable behaviour (refactor, rename, formatting), so no test is expected to fail on the base version."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 400
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kept",
+        "revised",
+        "dropped",
+        "notes"
+      ],
+      "properties": {
+        "kept": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "revised": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dropped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 400
+        }
+      }
+    },
+    "skillsUsed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10
+    },
+    "suspectedBugs": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "file",
+          "description"
+        ],
+        "properties": {
+          "file": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 600
+          }
+        }
+      }
+    }
+  }
+}
