@@ -11,7 +11,7 @@ datasource db {
 
 model Todo {
   id          Int       @id @default(autoincrement())
-  title       String    @db.VarChar(120)
+  title       String    @db.VarChar(200)
   description String    @default("") @db.VarChar(2000)
   priority    String    @default("medium") @db.VarChar(6)
   due_date    DateTime? @db.Date
