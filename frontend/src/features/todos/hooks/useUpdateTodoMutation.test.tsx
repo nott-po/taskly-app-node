@@ -35,6 +35,16 @@ it('replaces only the matching task in the cached list', async () => {
   expect(client.getQueryData(todoKeys.list)).toEqual([other, saved])
 })
 
+it('invalidates the cached stats after updating a task', async () => {
+  const { client, result } = setup()
+  client.setQueryData([...todoKeys.stats, '2026-10-15'], { total: 1 })
+  vi.mocked(todosApi.update).mockResolvedValue(todoFixture)
+  await act(() => result.current.mutateAsync({ id: 7, input: {} }))
+  expect(
+    client.getQueryState([...todoKeys.stats, '2026-10-15'])?.isInvalidated,
+  ).toBe(true)
+})
+
 it('keeps an empty cache undefined', async () => {
   const { client, result } = setup()
   vi.mocked(todosApi.update).mockResolvedValue(todoFixture)

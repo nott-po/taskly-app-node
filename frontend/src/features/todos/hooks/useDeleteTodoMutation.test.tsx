@@ -32,6 +32,16 @@ it('removes the deleted task from the cached list', async () => {
   expect(client.getQueryData(todoKeys.list)).toEqual([other])
 })
 
+it('invalidates the cached stats after deleting a task', async () => {
+  const { client, result } = setup()
+  client.setQueryData([...todoKeys.stats, '2026-10-15'], { total: 1 })
+  vi.mocked(todosApi.remove).mockResolvedValue(undefined)
+  await act(() => result.current.mutateAsync(7))
+  expect(
+    client.getQueryState([...todoKeys.stats, '2026-10-15'])?.isInvalidated,
+  ).toBe(true)
+})
+
 it('keeps an empty cache undefined', async () => {
   const { client, result } = setup()
   vi.mocked(todosApi.remove).mockResolvedValue(undefined)
