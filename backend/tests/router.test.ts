@@ -5,7 +5,7 @@ import { createTodosRouter } from '../src/features/todos/router.ts';
 import { todo } from './fixture.ts';
 
 function setup() {
-  const repository = { list: vi.fn().mockResolvedValue([todo]), create: vi.fn().mockResolvedValue(todo), get: vi.fn(), update: vi.fn(), delete: vi.fn() };
+  const repository = { list: vi.fn().mockResolvedValue([todo]), create: vi.fn().mockResolvedValue(todo), get: vi.fn(), update: vi.fn(), delete: vi.fn(), stats: vi.fn() };
   const app = express();
   app.use(express.json());
   app.use('/api/todos', createTodosRouter(repository));
@@ -81,6 +81,35 @@ it('deletes a task and returns 204 with no body', async () => {
   expect(response.status).toBe(204);
   expect(response.text).toBe('');
   expect(repository.delete).toHaveBeenCalledWith(1);
+});
+const stats = { total: 3, completed: 1, active: 2, overdue: 1 };
+it('returns stats for the date sent by the client, not read as an id', async () => {
+  const { app, repository } = setup();
+  repository.stats.mockResolvedValue(stats);
+  const response = await request(app).get('/api/todos/stats?today=2026-10-15');
+  expect(response.status).toBe(200);
+  expect(response.body).toEqual(stats);
+  expect(repository.stats).toHaveBeenCalledWith('2026-10-15');
+  expect(repository.get).not.toHaveBeenCalled();
+});
+it('defaults stats to the current UTC date', async () => {
+  const { app, repository } = setup();
+  repository.stats.mockResolvedValue(stats);
+  vi.useFakeTimers({ toFake: ['Date'] });
+  try {
+    vi.setSystemTime(new Date('2026-03-04T23:30:00Z'));
+    expect((await request(app).get('/api/todos/stats')).status).toBe(200);
+  } finally {
+    vi.useRealTimers();
+  }
+  expect(repository.stats).toHaveBeenCalledWith('2026-03-04');
+});
+it.each(['?today=2026-02-30', '?today=tomorrow', '?today=', '?today=2026-10-15&extra=1'])('rejects invalid stats query %s', async (query) => {
+  const { app, repository } = setup();
+  const response = await request(app).get(`/api/todos/stats${query}`);
+  expect(response.status).toBe(422);
+  expect(Array.isArray(response.body.detail)).toBe(true);
+  expect(repository.stats).not.toHaveBeenCalled();
 });
 it('returns 404 when deleting a missing task', async () => {
   const { app, repository } = setup();

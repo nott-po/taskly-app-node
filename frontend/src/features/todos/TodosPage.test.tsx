@@ -114,6 +114,7 @@ vi.mock('./components/DeleteTodoDialog', () => ({
   ),
 }))
 vi.mock('../../components/SuccessNotice', () => ({ SuccessNotice: () => null }))
+vi.mock('./components/TodoStats', () => ({ TodoStats: () => <p>stats</p> }))
 
 function setup(
   opts: {
@@ -206,6 +207,11 @@ it('treats a missing query result as an empty list and shows no alert', () => {
     screen.getByText('list 0 has=false loading=false failed=false busy=false'),
   ).toBeVisible()
   expect(screen.queryByTestId('alert')).not.toBeInTheDocument()
+})
+
+it('shows the task statistics on the page', () => {
+  setup()
+  expect(screen.getByText('stats')).toBeVisible()
 })
 
 it('passes loading, failure and cached-task state to the list', () => {

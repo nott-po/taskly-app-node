@@ -76,6 +76,16 @@ it('deletes tasks and handles missing tasks', async () => {
   expect(await repository.delete(1)).toBe(false);
 });
 
+it('computes stats from three counts with a UTC-midnight overdue cutoff', async () => {
+  const { database, repository } = setup();
+  const count = vi.spyOn(database.todo, 'count').mockResolvedValueOnce(10).mockResolvedValueOnce(4).mockResolvedValueOnce(2);
+  expect(await repository.stats('2026-10-15')).toEqual({ total: 10, completed: 4, active: 6, overdue: 2 });
+  expect(count).toHaveBeenCalledTimes(3);
+  expect(count).toHaveBeenNthCalledWith(1);
+  expect(count).toHaveBeenNthCalledWith(2, { where: { completed: true } });
+  expect(count).toHaveBeenNthCalledWith(3, { where: { completed: false, due_date: { lt: new Date('2026-10-15T00:00:00.000Z') } } });
+});
+
 it('propagates database errors', async () => {
   const { database, repository } = setup();
   vi.spyOn(database.todo, 'findMany').mockRejectedValue(new Error('Database unavailable'));

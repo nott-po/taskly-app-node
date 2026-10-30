@@ -1,5 +1,5 @@
 import { fromModel } from './mappers.js';
-import type { Database, TodoStore, TodoCreate, TodoUpdate, Todo } from './types.js';
+import type { Database, TodoStore, TodoCreate, TodoUpdate, Todo, TodoStats } from './types.js';
 
 export class TodoRepository implements TodoStore {
   constructor(private readonly database: Pick<Database, 'todo'>) {}
@@ -42,6 +42,15 @@ export class TodoRepository implements TodoStore {
       },
     });
     return rows.length ? fromModel(rows[0]) : null;
+  }
+
+  async stats(today: string): Promise<TodoStats> {
+    const [total, completed, overdue] = await Promise.all([
+      this.database.todo.count(),
+      this.database.todo.count({ where: { completed: true } }),
+      this.database.todo.count({ where: { completed: false, due_date: { lt: new Date(`${today}T00:00:00.000Z`) } } }),
+    ]);
+    return { total, completed, active: total - completed, overdue };
   }
 
   async delete(id: number): Promise<boolean> {

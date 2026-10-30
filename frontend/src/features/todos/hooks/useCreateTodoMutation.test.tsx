@@ -57,6 +57,16 @@ it('replaces a cached task that has the same id instead of duplicating it', asyn
   expect(client.getQueryData(todoKeys.list)).toEqual([todoFixture, other])
 })
 
+it('invalidates the cached stats after creating a task', async () => {
+  const { client, result } = setup()
+  client.setQueryData([...todoKeys.stats, '2026-10-15'], { total: 0 })
+  vi.mocked(todosApi.create).mockResolvedValue(todoFixture)
+  await act(() => result.current.mutateAsync(input))
+  expect(
+    client.getQueryState([...todoKeys.stats, '2026-10-15'])?.isInvalidated,
+  ).toBe(true)
+})
+
 it('leaves the cache untouched and exposes the error when creation fails', async () => {
   const { client, result } = setup()
   client.setQueryData(todoKeys.list, [todoFixture])
