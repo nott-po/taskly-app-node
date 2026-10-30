@@ -51,6 +51,7 @@ jobs:
     outputs:
       testable: ${{ steps.manifest.outputs.testable }}
       skip_reason: ${{ steps.manifest.outputs.skip_reason }}
+      own_commit: ${{ steps.manifest.outputs.own_commit }}
     steps:
       - uses: step-security/harden-runner@ccd8616d44fd3846e67624a50d5aad6d37bf2d25 # v2.22.1
         with:
@@ -94,6 +95,7 @@ jobs:
           # A rerun on top of the agent's own commit has nothing new to do
           if [ "$EVENT_ACTION" = "synchronize" ] && git log -1 --format=%B "$HEAD_SHA" | grep -q '^Test-Agent-Run:'; then
             testable=false; reason="the latest commit came from the test agent"
+            echo "own_commit=true" >> "$GITHUB_OUTPUT"
           fi
           echo "testable=$testable" >> "$GITHUB_OUTPUT"
           echo "skip_reason=$reason" >> "$GITHUB_OUTPUT"
@@ -363,6 +365,7 @@ jobs:
           REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number || steps.commit.outputs.pr }}
           SKIP_REASON: ${{ needs.analyze.outputs.skip_reason }}
+          OWN_COMMIT: ${{ needs.analyze.outputs.own_commit }}
           GENERATE_RESULT: ${{ needs.generate.result }}
           COMMIT_SHA: ${{ steps.commit.outputs.sha }}
           PUSH_ERROR: ${{ steps.commit.outputs.push_error }}
@@ -384,6 +387,8 @@ jobs:
           if [ -z "$PR" ]; then exit 0; fi
           existing=$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
             --jq '.[] | select(.user.login == "github-actions[bot]" and (.body | startswith("<!-- taskly-test-agent -->"))) | .id' | head -n1)
+          # Keep the report of the run that made the commit
+          if [ -n "$existing" ] && [ "$OWN_COMMIT" = true ]; then exit 0; fi
           if [ -n "$existing" ]; then
             gh api --method PATCH "repos/$REPO/issues/comments/$existing" -F "body=@$agent/comment.md" > /dev/null
           else
