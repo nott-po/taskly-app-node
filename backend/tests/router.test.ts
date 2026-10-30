@@ -25,7 +25,7 @@ it('creates tasks with trimmed input and defaults', async () => {
   expect(response.body).toEqual(todo);
   expect(repository.create).toHaveBeenCalledWith({ title: 'Plan the sprint', description: '', priority: 'high', due_date: null, completed: false });
 });
-it.each([{ title: '  ' }, { title: 'x'.repeat(121) }, { title: 'Task', priority: 'urgent' }, { title: 'Task', due_date: '2026-02-30' }])(
+it.each([{ title: '  ' }, { title: 'x'.repeat(201) }, { title: 'Task', priority: 'urgent' }, { title: 'Task', due_date: '2026-02-30' }])(
   'rejects invalid create input without calling the repository: %j', async (payload) => {
     const { app, repository } = setup();
     expect((await request(app).post('/api/todos').send(payload)).status).toBe(422);

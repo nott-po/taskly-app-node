@@ -12,6 +12,11 @@ it('creates the todos table if missing', async () => {
   expect($executeRaw).toHaveBeenCalledOnce();
   expect($executeRaw.mock.calls[0][0].join('')).toContain('CREATE TABLE IF NOT EXISTS todos');
 });
+it('creates the title column wide enough for 200 characters', async () => {
+  const $executeRaw = vi.fn().mockResolvedValue(0);
+  await initialize({ $executeRaw } as never);
+  expect($executeRaw.mock.calls[0][0].join('')).toContain('title VARCHAR(200) NOT NULL');
+});
 it('propagates initialization errors', async () => {
   const $executeRaw = vi.fn().mockRejectedValue(new Error('boom'));
   await expect(initialize({ $executeRaw } as never)).rejects.toThrow('boom');

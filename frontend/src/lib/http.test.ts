@@ -31,7 +31,7 @@ it('returns undefined for 204 responses', async () => {
 it('throws a friendly message for 422 responses', async () => {
   setup(new Response(JSON.stringify({ detail: 'raw' }), { status: 422 }))
   await expect(request('/todos')).rejects.toThrow(
-    'Check the task details: title up to 120 characters, description up to 2000 characters, and a valid due date.',
+    'Check the task details: title up to 200 characters, description up to 2000 characters, and a valid due date.',
   )
 })
 

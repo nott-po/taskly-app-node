@@ -13,7 +13,7 @@ export async function request<T>(path: string, init?: RequestInit): Promise<T> {
     const body = await response.json().catch(() => null)
     if (response.status === 422)
       throw new Error(
-        'Check the task details: title up to 120 characters, description up to 2000 characters, and a valid due date.',
+        'Check the task details: title up to 200 characters, description up to 2000 characters, and a valid due date.',
       )
     throw new Error(
       typeof body?.detail === 'string'

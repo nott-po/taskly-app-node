@@ -9,14 +9,14 @@ describe('todo validation', () => {
     });
   });
   it('accepts every input field and boundary lengths', () => {
-    const input = { title: 'x'.repeat(120), description: 'x'.repeat(2000), priority: 'low', due_date: '2024-02-29', completed: true };
+    const input = { title: 'x'.repeat(200), description: 'x'.repeat(2000), priority: 'low', due_date: '2024-02-29', completed: true };
     expect(createSchema.parse(input)).toEqual(input);
     expect(updateSchema.parse({ description: '  Details  ', title: '  Task  ', priority: 'high', completed: false, due_date: null }))
       .toEqual({ description: 'Details', title: 'Task', priority: 'high', completed: false, due_date: null });
     expect(updateSchema.parse({ due_date: '2026-10-15' })).toEqual({ due_date: '2026-10-15' });
   });
   it.each([
-    {}, { title: '' }, { title: '  ' }, { title: 'x'.repeat(121) },
+    {}, { title: '' }, { title: '  ' }, { title: 'x'.repeat(201) }, { title: `${'x'.repeat(200)}  x` },
     { title: 'Task', description: 'x'.repeat(2001) }, { title: 'Task', priority: 'urgent' },
     { title: 'Task', due_date: '2026-02-30' }, { title: 'Task', due_date: '2025-02-29' },
     { title: 'Task', due_date: '2026-10-15T12:00:00Z' }, { title: 'Task', completed: 'true' },
