@@ -21,7 +21,7 @@
 | Threat | Control | Where |
 | --- | --- | --- |
 | PR code reads the API key | The key is only in `generate`. Claude Code strips it from every subprocess (`CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`) and runs commands in a bubblewrap sandbox. `npm ci --ignore-scripts` | `test-agent.yml` |
-| PR code exfiltrates data | `harden-runner` blocks egress in `generate` except the Anthropic API, npm, GitHub and Ubuntu mirrors. The agent has no `curl`, `wget`, `npm`, `npx`, `node`, `WebFetch` or `WebSearch` | `test-agent.yml`, `.claude/test-agent.settings.json` |
+| PR code exfiltrates data | `harden-runner` blocks egress in `generate` except the Anthropic API, npm, GitHub and Ubuntu mirrors, and in `verify` except npm and GitHub. The agent has no `curl`, `wget`, `npm`, `npx`, `node`, `WebFetch` or `WebSearch` | `test-agent.yml`, `.claude/test-agent.settings.json` |
 | PR code gets write access | `publish` holds the write token and never installs or runs PR code. It applies a text patch and calls `git` and `gh` only. `persist-credentials: false` everywhere | `test-agent.yml` |
 | A PR rewrites the agent or its gate | `.claude/` and `scripts/agent/` are restored from the base branch before anything runs. The PR's copies are deleted first. CODEOWNERS covers them on `main` | `test-agent.yml`, `.github/CODEOWNERS` |
 | The agent edits non-test files | Three independent checks: permission rules, a `PreToolUse` hook (`guard-paths.mjs`), and `validate-patch.mjs` on the patch and again on the files on disk after `git apply` | `scripts/agent/` |
@@ -35,7 +35,6 @@
 ## Residual risks
 
 - Test code and the PR's Vitest config run inside the agent's sandbox, which has network access to the allowlisted hosts. The sandbox has no secrets, but a test could still contact the npm registry.
-- `verify` runs PR code with `egress-policy: audit`, not `block`. It has no secrets and a read-only token, so the worst case is wasted minutes.
 - The pattern checks are heuristics. A determined author can write a weak test that passes them. Time travel and review of the PR remain the backstop.
 - Someone with write access can change the workflow file in their own PR. The `pull_request` trigger runs the PR's version of the workflow. CODEOWNERS plus branch protection on `main` is the control for that.
 - `GITHUB_TOKEN` pushes don't trigger workflows, so `publish` starts CI explicitly. A GitHub App token would be cleaner (see SOLUTION.md).

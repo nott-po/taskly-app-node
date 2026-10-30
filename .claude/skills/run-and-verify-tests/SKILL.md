@@ -10,13 +10,13 @@ Run everything from the repository root with exactly these command shapes. They 
 
 | Goal | Command |
 | --- | --- |
-| Run some backend tests | `backend/node_modules/.bin/vitest run --root backend tests/config.test.ts` |
-| Run some frontend tests | `frontend/node_modules/.bin/vitest run --root frontend src/lib/http.test.ts` |
-| Coverage for one file | `backend/node_modules/.bin/vitest run --root backend --coverage --coverage.include=src/core/config.ts --coverage.reporter=text --coverage.thresholds.perFile=false tests/config.test.ts` |
+| Run some backend tests | `backend/node_modules/.bin/vitest run --root backend --reporter=default tests/config.test.ts` |
+| Run some frontend tests | `frontend/node_modules/.bin/vitest run --root frontend --reporter=default src/lib/http.test.ts` |
+| Coverage for one file | `backend/node_modules/.bin/vitest run --root backend --reporter=default --coverage --coverage.include=src/core/config.ts --coverage.reporter=text --coverage.thresholds.perFile=false tests/config.test.ts` |
 | Typecheck | `backend/node_modules/.bin/tsc --noEmit -p backend` (or `frontend`) |
-| Whole suite | `backend/node_modules/.bin/vitest run --root backend` |
+| Whole suite | `backend/node_modules/.bin/vitest run --root backend --reporter=default` |
 
-Test paths are relative to the package root (`--root`).
+Test paths are relative to the package root (`--root`). Keep `--reporter=default`: on GitHub Actions Vitest also adds a summary reporter, and the sandbox can't write the summary file.
 
 ## Loop, at most three rounds per file
 
