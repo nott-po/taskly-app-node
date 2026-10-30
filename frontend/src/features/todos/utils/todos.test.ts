@@ -89,13 +89,13 @@ describe('validateTodo', () => {
   it.each([
     ['', 'Enter a task title.'],
     ['   ', 'Enter a task title.'],
-    ['a'.repeat(121), 'The title must be at most 120 characters.'],
+    ['a'.repeat(201), 'The title must be at most 200 characters.'],
   ])('rejects title %j', (title, message) => {
     expect(validateTodo({ ...input, title })).toEqual({ title: message })
   })
 
-  it('accepts a title of exactly 120 characters after trimming', () => {
-    expect(validateTodo({ ...input, title: ` ${'a'.repeat(120)} ` })).toEqual(
+  it('accepts a title of exactly 200 characters after trimming', () => {
+    expect(validateTodo({ ...input, title: ` ${'a'.repeat(200)} ` })).toEqual(
       {},
     )
   })
