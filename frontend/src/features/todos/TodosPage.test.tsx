@@ -114,6 +114,7 @@ vi.mock('./components/DeleteTodoDialog', () => ({
   ),
 }))
 vi.mock('../../components/SuccessNotice', () => ({ SuccessNotice: () => null }))
+vi.mock('./components/TodoStats', () => ({ TodoStats: () => null }))
 
 function setup(
   opts: {
