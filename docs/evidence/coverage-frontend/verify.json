@@ -1,0 +1,434 @@
+{
+  "ok": true,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": false,
+    "files": [
+      {
+        "path": "frontend/src/app/AppProviders.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/TodosPage.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/api/todos.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/DeleteTodoDialog.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoEditor.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoEmptyState.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoForm.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoItem.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoList.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useTodoFilters.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useTodosBusy.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useTodosQuery.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/utils/todos.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/hooks/useNotice.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/lib/http.test.ts",
+        "operation": "create"
+      }
+    ],
+    "errors": []
+  },
+  "packages": {
+    "frontend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "frontend/src/app/AppProviders.test.tsx",
+          "frontend/src/features/todos/TodosPage.test.tsx",
+          "frontend/src/features/todos/api/todos.test.ts",
+          "frontend/src/features/todos/components/DeleteTodoDialog.test.tsx",
+          "frontend/src/features/todos/components/TodoEditor.test.tsx",
+          "frontend/src/features/todos/components/TodoEmptyState.test.tsx",
+          "frontend/src/features/todos/components/TodoForm.test.tsx",
+          "frontend/src/features/todos/components/TodoItem.test.tsx",
+          "frontend/src/features/todos/components/TodoList.test.tsx",
+          "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+          "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+          "frontend/src/features/todos/hooks/useTodoFilters.test.ts",
+          "frontend/src/features/todos/hooks/useTodosBusy.test.tsx",
+          "frontend/src/features/todos/hooks/useTodosQuery.test.tsx",
+          "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+          "frontend/src/features/todos/utils/todos.test.ts",
+          "frontend/src/hooks/useNotice.test.ts",
+          "frontend/src/lib/http.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 111,
+            "passed": 111,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 111,
+            "passed": 111,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 111,
+            "passed": 111,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 117,
+        "passed": 117,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 47.68,
+            "statements": 46.42,
+            "branches": 43.79,
+            "functions": 40.25
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.4,
+            "branches": 98.54,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "frontend/src/app/AppProviders.tsx",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/api/todos.ts",
+            "before": {
+              "lines": 57.14,
+              "statements": 57.14,
+              "branches": 100,
+              "functions": 50
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/DeleteTodoDialog.tsx",
+            "before": {
+              "lines": 37.5,
+              "statements": 33.33,
+              "branches": 62.5,
+              "functions": 33.33
+            },
+            "after": {
+              "lines": 100,
+              "statements": 88.88,
+              "branches": 87.5,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoEditor.tsx",
+            "before": {
+              "lines": 90,
+              "statements": 83.33,
+              "branches": 62.5,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoEmptyState.tsx",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoForm.tsx",
+            "before": {
+              "lines": 87.5,
+              "statements": 88.23,
+              "branches": 63.63,
+              "functions": 77.77
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoItem.tsx",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 35.71,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoList.tsx",
+            "before": {
+              "lines": 20,
+              "statements": 20,
+              "branches": 62.5,
+              "functions": 20
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useTodoFilters.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useTodosBusy.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useTodosQuery.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/TodosPage.tsx",
+            "before": {
+              "lines": 50,
+              "statements": 48.14,
+              "branches": 61.11,
+              "functions": 27.27
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/utils/todos.ts",
+            "before": {
+              "lines": 52,
+              "statements": 55.55,
+              "branches": 33.33,
+              "functions": 66.66
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.22,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/hooks/useNotice.ts",
+            "before": {
+              "lines": 71.42,
+              "statements": 54.54,
+              "branches": 75,
+              "functions": 40
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/lib/http.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [],
+      "unguarded": []
+    }
+  }
+}

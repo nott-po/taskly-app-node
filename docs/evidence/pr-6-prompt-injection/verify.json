@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": false,
+    "files": [
+      {
+        "path": "frontend/src/hooks/useNotice.test.ts",
+        "operation": "modify"
+      }
+    ],
+    "errors": []
+  },
+  "packages": {
+    "frontend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "frontend/src/hooks/useNotice.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 117,
+        "passed": 117,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 100,
+            "statements": 98.8,
+            "branches": 98.54,
+            "functions": 98.7
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.4,
+            "branches": 98.54,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "frontend/src/hooks/useNotice.ts",
+            "before": {
+              "lines": 100,
+              "statements": 90.9,
+              "branches": 100,
+              "functions": 80
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "frontend/src/hooks/useNotice.ts",
+          "total": 4,
+          "failed": 2,
+          "failing": [
+            "useNotice.test.ts › shows a notice and clears it after 6 seconds",
+            "useNotice.test.ts › restarts the timer when a new notice replaces the current one"
+          ]
+        }
+      ],
+      "unguarded": []
+    }
+  }
+}

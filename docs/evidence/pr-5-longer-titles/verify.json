@@ -1,0 +1,255 @@
+{
+  "ok": true,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": false,
+    "files": [
+      {
+        "path": "backend/tests/database.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "backend/tests/router.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "backend/tests/validators.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/utils/todos.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/lib/http.test.ts",
+        "operation": "modify"
+      }
+    ],
+    "errors": []
+  },
+  "packages": {
+    "backend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "backend/tests/database.test.ts",
+          "backend/tests/router.test.ts",
+          "backend/tests/validators.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 51,
+            "passed": 51,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 51,
+            "passed": 51,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 51,
+            "passed": 51,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 90,
+        "passed": 90,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 100,
+            "statements": 99.2,
+            "branches": 97.91,
+            "functions": 100
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.2,
+            "branches": 97.91,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "backend/src/core/database.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/features/todos/validators.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "backend/src/core/database.ts",
+          "total": 51,
+          "failed": 1,
+          "failing": [
+            "database.test.ts › creates the title column wide enough for 200 characters"
+          ]
+        },
+        {
+          "path": "backend/src/features/todos/validators.ts",
+          "total": 51,
+          "failed": 1,
+          "failing": [
+            "validators.test.ts › todo validation accepts every input field and boundary lengths"
+          ]
+        }
+      ],
+      "unguarded": []
+    },
+    "frontend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "frontend/src/features/todos/utils/todos.test.ts",
+          "frontend/src/lib/http.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 34,
+            "passed": 34,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 34,
+            "passed": 34,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 34,
+            "passed": 34,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 117,
+        "passed": 117,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 99.33,
+            "statements": 98.8,
+            "branches": 97.81,
+            "functions": 100
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.4,
+            "branches": 98.54,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "frontend/src/features/todos/utils/todos.ts",
+            "before": {
+              "lines": 96,
+              "statements": 96.29,
+              "branches": 94.44,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.22,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/lib/http.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "frontend/src/features/todos/utils/todos.ts",
+          "total": 34,
+          "failed": 2,
+          "failing": [
+            "todos.test.ts › validateTodo rejects title \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+            "todos.test.ts › validateTodo accepts a title of exactly 200 characters after trimming"
+          ]
+        },
+        {
+          "path": "frontend/src/lib/http.ts",
+          "total": 34,
+          "failed": 1,
+          "failing": [
+            "http.test.ts › throws a friendly message for 422 responses"
+          ]
+        }
+      ],
+      "unguarded": []
+    }
+  }
+}

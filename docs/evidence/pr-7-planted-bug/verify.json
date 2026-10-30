@@ -1,0 +1,132 @@
+{
+  "ok": false,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": true,
+    "files": [],
+    "errors": []
+  },
+  "packages": {
+    "frontend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "frontend/src/features/todos/utils/todos.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 25,
+            "passed": 23,
+            "failed": 2,
+            "failures": [
+              {
+                "name": "todos.test.ts › isOverdue is false for a task due today or later",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:145:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              },
+              {
+                "name": "todos.test.ts › isOverdue pads single digit months and days",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:160:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              }
+            ]
+          },
+          {
+            "seed": 8919,
+            "total": 25,
+            "passed": 23,
+            "failed": 2,
+            "failures": [
+              {
+                "name": "todos.test.ts › isOverdue is false for a task due today or later",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:145:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              },
+              {
+                "name": "todos.test.ts › isOverdue pads single digit months and days",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:160:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              }
+            ]
+          },
+          {
+            "seed": 16838,
+            "total": 25,
+            "passed": 23,
+            "failed": 2,
+            "failures": [
+              {
+                "name": "todos.test.ts › isOverdue is false for a task due today or later",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:145:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              },
+              {
+                "name": "todos.test.ts › isOverdue pads single digit months and days",
+                "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:160:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+              }
+            ]
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 117,
+        "passed": 115,
+        "failed": 2,
+        "failures": [
+          {
+            "name": "todos.test.ts › isOverdue is false for a task due today or later",
+            "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:145:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+          },
+          {
+            "name": "todos.test.ts › isOverdue pads single digit months and days",
+            "message": "AssertionError: expected true to be false // Object.is equality\n    at /home/runner/work/taskly-app-node/taskly-app-node/frontend/src/features/todos/utils/todos.test.ts:160:60\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26\n    at file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///home/runner/work/taskly-app-node/taskly-app-node/frontend/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)\n    at file:///home/runner/work/taskly-app-node/"
+          }
+        ]
+      },
+      "thresholdsMet": false,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 100,
+            "statements": 99.41,
+            "branches": 98.55,
+            "functions": 100
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.41,
+            "branches": 98.55,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "frontend/src/features/todos/utils/todos.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.29,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.29,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "frontend/src/features/todos/utils/todos.ts",
+          "total": 25,
+          "failed": 0,
+          "failing": []
+        }
+      ],
+      "unguarded": []
+    }
+  }
+}

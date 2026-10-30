@@ -1,0 +1,47 @@
+{
+  "decision": "no_tests_needed",
+  "summary": "The \"extract the local date helper\" refactor changed `isOverdue` from `<` to `<=`, so a task due today is now overdue. Two existing tests catch this and now fail. I wrote no tests and left the existing assertions alone, because the change looks unintended.",
+  "files": [
+    {
+      "source": "frontend/src/features/todos/utils/todos.ts",
+      "action": "unchanged",
+      "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+      "preservesBehaviour": false,
+      "reason": "The existing isOverdue tests already cover the intended behaviour (due today is not overdue, single-digit padding). Two of them fail against the new code, so I did not weaken them or add tests that match the new behaviour."
+    }
+  ],
+  "review": {
+    "kept": 0,
+    "revised": 0,
+    "dropped": 0,
+    "notes": "No tests were added. The existing tests 'is false for a task due today or later' and 'pads single digit months and days' fail because of the suspected bug."
+  },
+  "skillsUsed": [
+    "analyze-pr-changes",
+    "frontend-unit-tests",
+    "run-and-verify-tests",
+    "review-test-quality",
+    "test-report"
+  ],
+  "suspectedBugs": [
+    {
+      "file": "frontend/src/features/todos/utils/todos.ts",
+      "description": "isOverdue compares with `<=` instead of `<` after the todayLocal extraction. Input: an open task with due_date equal to today (system time 2026-10-15, due_date '2026-10-15'). Expected: false, since a task due today is not overdue. Actual: true. The commit is described as a refactor, so the change looks unintended."
+    }
+  ],
+  "meta": {
+    "subtype": "success",
+    "turns": 4,
+    "costUsd": 0.0376316,
+    "durationMs": 11366,
+    "deniedToolCalls": 0,
+    "skillsLoaded": [
+      "analyze-pr-changes",
+      "backend-unit-tests",
+      "frontend-unit-tests",
+      "run-and-verify-tests",
+      "review-test-quality",
+      "test-report"
+    ]
+  }
+}

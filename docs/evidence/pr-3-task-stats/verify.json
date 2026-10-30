@@ -1,0 +1,437 @@
+{
+  "ok": true,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": false,
+    "files": [
+      {
+        "path": "backend/tests/repository.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "backend/tests/router.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "backend/tests/validators.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/TodosPage.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/api/todos.test.ts",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoStats.test.tsx",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useTodoStatsQuery.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+        "operation": "modify"
+      },
+      {
+        "path": "frontend/src/features/todos/utils/todos.test.ts",
+        "operation": "modify"
+      }
+    ],
+    "errors": []
+  },
+  "packages": {
+    "backend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "backend/tests/repository.test.ts",
+          "backend/tests/router.test.ts",
+          "backend/tests/validators.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 69,
+            "passed": 69,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 69,
+            "passed": 69,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 69,
+            "passed": 69,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 100,
+        "passed": 100,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 95.57,
+            "statements": 94.77,
+            "branches": 90.38,
+            "functions": 93.93
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.25,
+            "branches": 98.07,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "backend/src/features/todos/repository.ts",
+            "before": {
+              "lines": 88.88,
+              "statements": 89.47,
+              "branches": 100,
+              "functions": 87.5
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/features/todos/router.ts",
+            "before": {
+              "lines": 89.65,
+              "statements": 89.18,
+              "branches": 75,
+              "functions": 87.5
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/features/todos/validators.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "backend/src/features/todos/repository.ts",
+          "total": 69,
+          "failed": 1,
+          "failing": [
+            "repository.test.ts › computes stats from three counts with a UTC-midnight overdue cutoff"
+          ]
+        },
+        {
+          "path": "backend/src/features/todos/router.ts",
+          "total": 69,
+          "failed": 2,
+          "failing": [
+            "router.test.ts › returns stats for the date sent by the client, not read as an id",
+            "router.test.ts › defaults stats to the current UTC date"
+          ]
+        },
+        {
+          "path": "backend/src/features/todos/validators.ts",
+          "total": 69,
+          "failed": 11,
+          "failing": [
+            "router.test.ts › returns stats for the date sent by the client, not read as an id",
+            "router.test.ts › defaults stats to the current UTC date",
+            "router.test.ts › rejects invalid stats query ?today=2026-02-30",
+            "router.test.ts › rejects invalid stats query ?today=tomorrow",
+            "router.test.ts › rejects invalid stats query ?today="
+          ]
+        }
+      ],
+      "unguarded": []
+    },
+    "frontend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "frontend/src/features/todos/TodosPage.test.tsx",
+          "frontend/src/features/todos/api/todos.test.ts",
+          "frontend/src/features/todos/components/TodoStats.test.tsx",
+          "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+          "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+          "frontend/src/features/todos/hooks/useTodoStatsQuery.test.ts",
+          "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+          "frontend/src/features/todos/utils/todos.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 66,
+            "passed": 66,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 66,
+            "passed": 66,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 66,
+            "passed": 66,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 131,
+        "passed": 131,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 93.86,
+            "statements": 92.85,
+            "branches": 91.89,
+            "functions": 95.12
+          },
+          "after": {
+            "lines": 100,
+            "statements": 99.45,
+            "branches": 98.64,
+            "functions": 100
+          }
+        },
+        "files": [
+          {
+            "path": "frontend/src/features/todos/TodosPage.tsx",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/api/todos.ts",
+            "before": {
+              "lines": 87.5,
+              "statements": 87.5,
+              "branches": 100,
+              "functions": 80
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/components/TodoStats.tsx",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useTodoStatsQuery.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "frontend/src/features/todos/utils/todos.ts",
+            "before": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.29,
+              "functions": 100
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 97.29,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [
+        {
+          "path": "frontend/src/features/todos/TodosPage.tsx",
+          "total": 66,
+          "failed": 1,
+          "failing": [
+            "TodosPage.test.tsx › shows the task statistics on the page"
+          ]
+        },
+        {
+          "path": "frontend/src/features/todos/api/todos.ts",
+          "total": 66,
+          "failed": 1,
+          "failing": [
+            "todos.test.ts › requests stats with the encoded local date and abort signal"
+          ]
+        },
+        {
+          "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.ts",
+          "total": 66,
+          "failed": 1,
+          "failing": [
+            "useCreateTodoMutation.test.tsx › invalidates the cached stats after creating a task"
+          ]
+        },
+        {
+          "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.ts",
+          "total": 66,
+          "failed": 1,
+          "failing": [
+            "useDeleteTodoMutation.test.tsx › invalidates the cached stats after deleting a task"
+          ]
+        },
+        {
+          "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.ts",
+          "total": 66,
+          "failed": 1,
+          "failing": [
+            "useUpdateTodoMutation.test.tsx › invalidates the cached stats after updating a task"
+          ]
+        },
+        {
+          "path": "frontend/src/features/todos/utils/todos.ts",
+          "total": 66,
+          "failed": 4,
+          "failing": [
+            "useTodoStatsQuery.test.ts › fetches stats for the local date and caches them under a date-scoped key",
+            "useTodoStatsQuery.test.ts › exposes an error when the request fails",
+            "todos.test.ts › localDate formats the given date in local time with padding",
+            "todos.test.ts › localDate defaults to the current local date"
+          ]
+        }
+      ],
+      "unguarded": []
+    }
+  }
+}

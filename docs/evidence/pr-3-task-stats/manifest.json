@@ -1,0 +1,109 @@
+{
+  "base": "85c5eee391e6fd5ffbb9970ef14b6f2b2cdd86c9",
+  "head": "616ab43c6db0d5a49e220c5f9ef9a7fb9c619865",
+  "packages": {
+    "backend": [
+      {
+        "path": "backend/src/features/todos/repository.ts",
+        "status": "modified",
+        "testFile": "backend/tests/repository.test.ts",
+        "testExists": true
+      },
+      {
+        "path": "backend/src/features/todos/router.ts",
+        "status": "modified",
+        "testFile": "backend/tests/router.test.ts",
+        "testExists": true
+      },
+      {
+        "path": "backend/src/features/todos/validators.ts",
+        "status": "modified",
+        "testFile": "backend/tests/validators.test.ts",
+        "testExists": true
+      }
+    ],
+    "frontend": [
+      {
+        "path": "frontend/src/features/todos/TodosPage.tsx",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/TodosPage.test.tsx",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/features/todos/api/todos.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/api/todos.test.ts",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/features/todos/components/TodoStats.tsx",
+        "status": "added",
+        "testFile": "frontend/src/features/todos/components/TodoStats.test.tsx",
+        "testExists": false
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useCreateTodoMutation.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useDeleteTodoMutation.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useTodoStatsQuery.ts",
+        "status": "added",
+        "testFile": "frontend/src/features/todos/hooks/useTodoStatsQuery.test.ts",
+        "testExists": false
+      },
+      {
+        "path": "frontend/src/features/todos/hooks/useUpdateTodoMutation.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/features/todos/utils/todos.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+        "testExists": true
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "path": "backend/openapi.json",
+      "reason": "not TypeScript source"
+    },
+    {
+      "path": "backend/src/features/todos/types.ts",
+      "reason": "type declarations only"
+    },
+    {
+      "path": "docs/images/todo-stats-closeup.png",
+      "reason": "outside frontend/ and backend/"
+    },
+    {
+      "path": "docs/images/todo-stats.png",
+      "reason": "outside frontend/ and backend/"
+    },
+    {
+      "path": "frontend/src/features/todos/api/queryKeys.ts",
+      "reason": "static configuration"
+    },
+    {
+      "path": "frontend/src/features/todos/types.ts",
+      "reason": "type declarations only"
+    }
+  ],
+  "deletedSources": [],
+  "changedTests": [
+    "backend/tests/router.test.ts",
+    "frontend/src/features/todos/TodosPage.test.tsx"
+  ],
+  "truncated": false,
+  "hasTestableChanges": true
+}

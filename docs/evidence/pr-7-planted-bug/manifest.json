@@ -1,0 +1,19 @@
+{
+  "base": "203e8417b2323636639219a6788626bb87da6913",
+  "head": "6b60ee2c40770397be79ab797496fcc8ab55bb68",
+  "packages": {
+    "frontend": [
+      {
+        "path": "frontend/src/features/todos/utils/todos.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+        "testExists": true
+      }
+    ]
+  },
+  "skipped": [],
+  "deletedSources": [],
+  "changedTests": [],
+  "truncated": false,
+  "hasTestableChanges": true
+}

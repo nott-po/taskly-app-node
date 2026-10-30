@@ -1,0 +1,64 @@
+{
+  "decision": "tests_written",
+  "summary": "Updated tests for the title limit change from 120 to 200 characters across backend and frontend. Typecheck and both full suites pass. Vitest's GitHub reporter hit a read-only summary path, so I ran with the default reporter. I didn't run the coverage command.",
+  "files": [
+    {
+      "source": "backend/src/core/database.ts",
+      "action": "updated",
+      "testFile": "backend/tests/database.test.ts",
+      "preservesBehaviour": false,
+      "reason": "New test asserts the CREATE TABLE statement declares title VARCHAR(200)."
+    },
+    {
+      "source": "backend/src/features/todos/validators.ts",
+      "action": "updated",
+      "testFile": "backend/tests/validators.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Boundary moved to 200 (accepted) and 201 (rejected), plus a case where trimmed length is over 200. The old 121-char rejection assertion was intentionally changed. Also updated the 121 payload in router.test.ts to 201."
+    },
+    {
+      "source": "frontend/src/features/todos/utils/todos.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Limit and message updated to 200: 201 chars is rejected with the new message, and exactly 200 chars after trimming is accepted."
+    },
+    {
+      "source": "frontend/src/lib/http.ts",
+      "action": "updated",
+      "testFile": "frontend/src/lib/http.test.ts",
+      "preservesBehaviour": false,
+      "reason": "The 422 error message assertion now expects 'title up to 200 characters'."
+    }
+  ],
+  "review": {
+    "kept": 5,
+    "revised": 4,
+    "dropped": 0,
+    "notes": "Four existing assertions were revised for the intended 120→200 change and one new database test was added. The new validator case with extra inner whitespace is a 203-character title, so it overlaps the 201 case a little."
+  },
+  "skillsUsed": [
+    "analyze-pr-changes",
+    "backend-unit-tests",
+    "frontend-unit-tests",
+    "run-and-verify-tests",
+    "review-test-quality",
+    "test-report"
+  ],
+  "suspectedBugs": [],
+  "meta": {
+    "subtype": "success",
+    "turns": 17,
+    "costUsd": 0.08805679999999999,
+    "durationMs": 58571,
+    "deniedToolCalls": 1,
+    "skillsLoaded": [
+      "analyze-pr-changes",
+      "backend-unit-tests",
+      "frontend-unit-tests",
+      "run-and-verify-tests",
+      "review-test-quality",
+      "test-report"
+    ]
+  }
+}

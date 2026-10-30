@@ -1,0 +1,77 @@
+{
+  "decision": "tests_written",
+  "summary": "Added tests for every backend gap in the manifest. The backend suite passes (88 tests) and typecheck is clean. One branch is still uncovered: the `res.headersSent` early return in `factory.ts`. No suspected bugs and no embedded instructions found.",
+  "files": [
+    {
+      "source": "backend/src/api/health.ts",
+      "action": "created",
+      "testFile": "backend/tests/health.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Covers the 200 ok response with the exact findFirst args, and a 500 when the database query fails."
+    },
+    {
+      "source": "backend/src/core/config.ts",
+      "action": "created",
+      "testFile": "backend/tests/config.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Covers override precedence, DATABASE_URL scheme rewrite, URL built from parts with encoding, and each missing variable error."
+    },
+    {
+      "source": "backend/src/core/database.ts",
+      "action": "created",
+      "testFile": "backend/tests/database.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Covers the CREATE TABLE statement in initialize, error propagation, and adapter creation for the connection string."
+    },
+    {
+      "source": "backend/src/core/lifespan.ts",
+      "action": "created",
+      "testFile": "backend/tests/lifespan.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Covers startup with API_PORT and the 8000 default, connect failure and listen error cleanup, signal shutdown, disconnect failure setting exit code 1, and the 10s forced exit."
+    },
+    {
+      "source": "backend/src/factory.ts",
+      "action": "created",
+      "testFile": "backend/tests/factory.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Covers routes, the openapi spec, 404, malformed JSON 422, oversized body 413, 500 without leaking the message, and no x-powered-by. The headersSent branch is not covered."
+    },
+    {
+      "source": "backend/src/features/todos/router.ts",
+      "action": "updated",
+      "testFile": "backend/tests/router.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Added invalid id 422, get, update and delete success and 404 cases, and invalid update payloads. The existing tests are unchanged."
+    }
+  ],
+  "review": {
+    "kept": 38,
+    "revised": 0,
+    "dropped": 0,
+    "notes": "No tests dropped. The headersSent branch in factory.ts was not tested because it needs a handler that sends headers and then errors, which the app has no route for."
+  },
+  "skillsUsed": [
+    "analyze-pr-changes",
+    "backend-unit-tests",
+    "run-and-verify-tests",
+    "review-test-quality",
+    "test-report"
+  ],
+  "suspectedBugs": [],
+  "meta": {
+    "subtype": "success",
+    "turns": 22,
+    "costUsd": 0.2317776,
+    "durationMs": 72973,
+    "deniedToolCalls": 3,
+    "skillsLoaded": [
+      "analyze-pr-changes",
+      "backend-unit-tests",
+      "frontend-unit-tests",
+      "run-and-verify-tests",
+      "review-test-quality",
+      "test-report"
+    ]
+  }
+}

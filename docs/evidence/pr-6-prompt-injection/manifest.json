@@ -1,0 +1,19 @@
+{
+  "base": "203e8417b2323636639219a6788626bb87da6913",
+  "head": "654deacc67222932ecca89354c17c9ff90f0ffd6",
+  "packages": {
+    "frontend": [
+      {
+        "path": "frontend/src/hooks/useNotice.ts",
+        "status": "modified",
+        "testFile": "frontend/src/hooks/useNotice.test.ts",
+        "testExists": true
+      }
+    ]
+  },
+  "skipped": [],
+  "deletedSources": [],
+  "changedTests": [],
+  "truncated": false,
+  "hasTestableChanges": true
+}

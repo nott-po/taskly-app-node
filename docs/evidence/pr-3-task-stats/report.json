@@ -1,0 +1,113 @@
+{
+  "decision": "tests_written",
+  "summary": "Added backend and frontend tests for the task stats feature. Typechecks and both full suites pass (backend 100, frontend 131). I did not run coverage or the base-version check. Run output showed `.env.example` and some dotfiles as modified or untracked; I did not touch them.",
+  "files": [
+    {
+      "source": "backend/src/features/todos/repository.ts",
+      "action": "updated",
+      "testFile": "backend/tests/repository.test.ts",
+      "preservesBehaviour": false,
+      "reason": "stats(): total/completed/active/overdue and the exact Prisma count arguments, including the UTC-midnight cutoff."
+    },
+    {
+      "source": "backend/src/features/todos/router.ts",
+      "action": "updated",
+      "testFile": "backend/tests/router.test.ts",
+      "preservesBehaviour": false,
+      "reason": "GET /stats with client date (route not read as id), default UTC date under fake timers, and 422 for invalid/extra query."
+    },
+    {
+      "source": "backend/src/features/todos/validators.ts",
+      "action": "updated",
+      "testFile": "backend/tests/validators.test.ts",
+      "preservesBehaviour": false,
+      "reason": "statsQuerySchema: optional date, leap day, non-calendar date, datetime, wrong type, unknown key."
+    },
+    {
+      "source": "frontend/src/features/todos/TodosPage.tsx",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/TodosPage.test.tsx",
+      "preservesBehaviour": false,
+      "reason": "The TodoStats mock now renders a marker and a test asserts the page shows it."
+    },
+    {
+      "source": "frontend/src/features/todos/api/todos.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/api/todos.test.ts",
+      "preservesBehaviour": false,
+      "reason": "stats() URL, date encoding and abort signal."
+    },
+    {
+      "source": "frontend/src/features/todos/components/TodoStats.tsx",
+      "action": "created",
+      "testFile": "frontend/src/features/todos/components/TodoStats.test.tsx",
+      "preservesBehaviour": false,
+      "reason": "Loading, error, zero total, singular/plural, and overdue badge shown or hidden."
+    },
+    {
+      "source": "frontend/src/features/todos/hooks/useCreateTodoMutation.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/hooks/useCreateTodoMutation.test.tsx",
+      "preservesBehaviour": false,
+      "reason": "Stats cache is invalidated after create."
+    },
+    {
+      "source": "frontend/src/features/todos/hooks/useDeleteTodoMutation.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/hooks/useDeleteTodoMutation.test.tsx",
+      "preservesBehaviour": false,
+      "reason": "Stats cache is invalidated after delete."
+    },
+    {
+      "source": "frontend/src/features/todos/hooks/useTodoStatsQuery.ts",
+      "action": "created",
+      "testFile": "frontend/src/features/todos/hooks/useTodoStatsQuery.test.ts",
+      "preservesBehaviour": false,
+      "reason": "Fetches with local date and signal, date-scoped cache key, and error state."
+    },
+    {
+      "source": "frontend/src/features/todos/hooks/useUpdateTodoMutation.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/hooks/useUpdateTodoMutation.test.tsx",
+      "preservesBehaviour": false,
+      "reason": "Stats cache is invalidated after update."
+    },
+    {
+      "source": "frontend/src/features/todos/utils/todos.ts",
+      "action": "updated",
+      "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+      "preservesBehaviour": false,
+      "reason": "New exported localDate: padding, explicit date, default current date. isOverdue is already tested."
+    }
+  ],
+  "review": {
+    "kept": 22,
+    "revised": 1,
+    "dropped": 0,
+    "notes": "Revised the TodosPage stats mock from null to a marker so the wiring is asserted. A failed-delete stats test was drafted but never written to the repo."
+  },
+  "skillsUsed": [
+    "analyze-pr-changes",
+    "backend-unit-tests",
+    "frontend-unit-tests",
+    "run-and-verify-tests",
+    "review-test-quality",
+    "test-report"
+  ],
+  "suspectedBugs": [],
+  "meta": {
+    "subtype": "success",
+    "turns": 34,
+    "costUsd": 0.3189226,
+    "durationMs": 94127,
+    "deniedToolCalls": 3,
+    "skillsLoaded": [
+      "analyze-pr-changes",
+      "backend-unit-tests",
+      "frontend-unit-tests",
+      "run-and-verify-tests",
+      "review-test-quality",
+      "test-report"
+    ]
+  }
+}

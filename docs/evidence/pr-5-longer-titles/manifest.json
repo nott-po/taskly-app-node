@@ -1,0 +1,48 @@
+{
+  "base": "203e8417b2323636639219a6788626bb87da6913",
+  "head": "f8c9c767a2bccfb898785d0285a934acec38e3c7",
+  "packages": {
+    "backend": [
+      {
+        "path": "backend/src/core/database.ts",
+        "status": "modified",
+        "testFile": "backend/tests/database.test.ts",
+        "testExists": true
+      },
+      {
+        "path": "backend/src/features/todos/validators.ts",
+        "status": "modified",
+        "testFile": "backend/tests/validators.test.ts",
+        "testExists": true
+      }
+    ],
+    "frontend": [
+      {
+        "path": "frontend/src/features/todos/utils/todos.ts",
+        "status": "modified",
+        "testFile": "frontend/src/features/todos/utils/todos.test.ts",
+        "testExists": true
+      },
+      {
+        "path": "frontend/src/lib/http.ts",
+        "status": "modified",
+        "testFile": "frontend/src/lib/http.test.ts",
+        "testExists": true
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "path": "backend/openapi.json",
+      "reason": "not TypeScript source"
+    },
+    {
+      "path": "backend/prisma/schema.prisma",
+      "reason": "not TypeScript source"
+    }
+  ],
+  "deletedSources": [],
+  "changedTests": [],
+  "truncated": false,
+  "hasTestableChanges": true
+}

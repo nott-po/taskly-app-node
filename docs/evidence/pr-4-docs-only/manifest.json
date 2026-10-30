@@ -1,0 +1,15 @@
+{
+  "base": "203e8417b2323636639219a6788626bb87da6913",
+  "head": "a5c7ceb05ed9f9e11b7db9f7b8cc3f2be9a9a57d",
+  "packages": {},
+  "skipped": [
+    {
+      "path": "README.md",
+      "reason": "outside frontend/ and backend/"
+    }
+  ],
+  "deletedSources": [],
+  "changedTests": [],
+  "truncated": false,
+  "hasTestableChanges": false
+}

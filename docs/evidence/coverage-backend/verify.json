@@ -1,0 +1,194 @@
+{
+  "ok": true,
+  "stage": "done",
+  "validation": {
+    "ok": true,
+    "empty": false,
+    "files": [
+      {
+        "path": "backend/tests/config.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "backend/tests/database.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "backend/tests/factory.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "backend/tests/health.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "backend/tests/lifespan.test.ts",
+        "operation": "create"
+      },
+      {
+        "path": "backend/tests/router.test.ts",
+        "operation": "modify"
+      }
+    ],
+    "errors": []
+  },
+  "packages": {
+    "backend": {
+      "install": true,
+      "typecheck": {
+        "ok": true
+      },
+      "targeted": {
+        "files": [
+          "backend/tests/config.test.ts",
+          "backend/tests/database.test.ts",
+          "backend/tests/factory.test.ts",
+          "backend/tests/health.test.ts",
+          "backend/tests/lifespan.test.ts",
+          "backend/tests/router.test.ts"
+        ],
+        "runs": [
+          {
+            "seed": 1000,
+            "total": 46,
+            "passed": 46,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 8919,
+            "total": 46,
+            "passed": 46,
+            "failed": 0,
+            "failures": []
+          },
+          {
+            "seed": 16838,
+            "total": 46,
+            "passed": 46,
+            "failed": 0,
+            "failures": []
+          }
+        ],
+        "flaky": false
+      },
+      "full": {
+        "total": 88,
+        "passed": 88,
+        "failed": 0,
+        "failures": []
+      },
+      "thresholdsMet": true,
+      "coverage": {
+        "total": {
+          "before": {
+            "lines": 33.02,
+            "statements": 30.23,
+            "branches": 33.33,
+            "functions": 40.62
+          },
+          "after": {
+            "lines": 97.24,
+            "statements": 96.89,
+            "branches": 97.91,
+            "functions": 96.87
+          }
+        },
+        "files": [
+          {
+            "path": "backend/src/api/health.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 100,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/core/config.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/core/database.ts",
+            "before": {
+              "lines": 66.66,
+              "statements": 66.66,
+              "branches": 100,
+              "functions": 50
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/core/lifespan.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/factory.ts",
+            "before": {
+              "lines": 0,
+              "statements": 0,
+              "branches": 0,
+              "functions": 0
+            },
+            "after": {
+              "lines": 100,
+              "statements": 95.45,
+              "branches": 92.85,
+              "functions": 100
+            }
+          },
+          {
+            "path": "backend/src/features/todos/router.ts",
+            "before": {
+              "lines": 44,
+              "statements": 40.62,
+              "branches": 16.66,
+              "functions": 42.85
+            },
+            "after": {
+              "lines": 100,
+              "statements": 100,
+              "branches": 100,
+              "functions": 100
+            }
+          }
+        ]
+      },
+      "timeTravel": [],
+      "unguarded": []
+    }
+  }
+}

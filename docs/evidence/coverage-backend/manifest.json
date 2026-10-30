@@ -1,0 +1,199 @@
+{
+  "mode": "coverage",
+  "packages": {
+    "backend": [
+      {
+        "path": "backend/src/api/health.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/health.test.ts",
+        "testExists": false,
+        "gaps": {
+          "lines": [
+            5,
+            6,
+            7,
+            8,
+            10
+          ],
+          "branches": [],
+          "functions": [
+            "createHealthRouter",
+            "(anonymous_1)"
+          ]
+        }
+      },
+      {
+        "path": "backend/src/core/config.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/config.test.ts",
+        "testExists": false,
+        "gaps": {
+          "lines": [
+            4,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "branches": [
+            7,
+            8,
+            11
+          ],
+          "functions": [
+            "resolveDatabaseUrl"
+          ]
+        }
+      },
+      {
+        "path": "backend/src/core/database.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/database.test.ts",
+        "testExists": false,
+        "gaps": {
+          "lines": [
+            12
+          ],
+          "branches": [],
+          "functions": [
+            "initialize"
+          ]
+        }
+      },
+      {
+        "path": "backend/src/core/lifespan.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/lifespan.test.ts",
+        "testExists": false,
+        "gaps": {
+          "lines": [
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            26,
+            27,
+            28,
+            30,
+            31
+          ],
+          "branches": [
+            14
+          ],
+          "functions": [
+            "start",
+            "(anonymous_1)",
+            "(anonymous_2)",
+            "(anonymous_3)",
+            "(anonymous_4)",
+            "(anonymous_5)"
+          ]
+        }
+      },
+      {
+        "path": "backend/src/factory.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/factory.test.ts",
+        "testExists": false,
+        "gaps": {
+          "lines": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27
+          ],
+          "branches": [
+            20,
+            21,
+            22
+          ],
+          "functions": [
+            "createApp",
+            "(anonymous_1)",
+            "(anonymous_2)",
+            "(anonymous_3)"
+          ]
+        }
+      },
+      {
+        "path": "backend/src/features/todos/router.ts",
+        "status": "uncovered",
+        "testFile": "backend/tests/router.test.ts",
+        "testExists": true,
+        "gaps": {
+          "lines": [
+            8,
+            9,
+            10,
+            11,
+            20,
+            21,
+            22,
+            25,
+            26,
+            27,
+            28,
+            29,
+            32,
+            33
+          ],
+          "branches": [
+            9,
+            21,
+            26,
+            28,
+            32
+          ],
+          "functions": [
+            "(anonymous_1)",
+            "(anonymous_4)",
+            "(anonymous_5)",
+            "(anonymous_6)"
+          ]
+        }
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "path": "backend/src/main.ts",
+      "reason": "process entry point"
+    }
+  ],
+  "deletedSources": [],
+  "changedTests": [],
+  "truncated": false,
+  "hasTestableChanges": true
+}
