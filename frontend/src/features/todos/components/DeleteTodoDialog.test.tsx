@@ -40,3 +40,61 @@ it('shows a deletion error and allows cancelling without deleting', async () => 
   expect(mutateAsync).not.toHaveBeenCalled()
   expect(onDeleted).not.toHaveBeenCalled()
 })
+
+function setup(
+  mutation: { isPending?: boolean; mutateAsync?: ReturnType<typeof vi.fn> },
+  busy = false,
+) {
+  const mutateAsync = mutation.mutateAsync ?? vi.fn()
+  vi.mocked(useDeleteTodoMutation).mockReturnValue({
+    isPending: mutation.isPending ?? false,
+    error: null,
+    mutateAsync,
+  } as unknown as ReturnType<typeof useDeleteTodoMutation>)
+  const onClose = vi.fn()
+  const onDeleted = vi.fn()
+  render(
+    <DeleteTodoDialog
+      todo={todoFixture}
+      busy={busy}
+      onClose={onClose}
+      onDeleted={onDeleted}
+    />,
+  )
+  return { user: userEvent.setup(), mutateAsync, onClose, onDeleted }
+}
+
+it('deletes the task and reports it', async () => {
+  const { user, mutateAsync, onDeleted } = setup({
+    mutateAsync: vi.fn().mockResolvedValue(undefined),
+  })
+  expect(screen.queryByTestId('alert')).not.toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: 'Delete task' }))
+  expect(mutateAsync).toHaveBeenCalledWith(todoFixture.id)
+  expect(onDeleted).toHaveBeenCalledTimes(1)
+})
+
+it('stays open when deletion fails', async () => {
+  const { user, mutateAsync, onDeleted, onClose } = setup({
+    mutateAsync: vi.fn().mockRejectedValue(new Error('x')),
+  })
+  await user.click(screen.getByRole('button', { name: 'Delete task' }))
+  expect(mutateAsync).toHaveBeenCalledTimes(1)
+  expect(onDeleted).not.toHaveBeenCalled()
+  expect(onClose).not.toHaveBeenCalled()
+})
+
+it.each([
+  ['the mutation is pending', true, false],
+  ['the parent is busy', false, true],
+])(
+  'disables both buttons and shows progress when %s',
+  async (_, isPending, busy) => {
+    const { user, mutateAsync } = setup({ isPending }, busy)
+    const button = screen.getByRole('button', { name: 'Deleting…' })
+    expect(button).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeDisabled()
+    await user.click(button)
+    expect(mutateAsync).not.toHaveBeenCalled()
+  },
+)
