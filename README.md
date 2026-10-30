@@ -14,6 +14,12 @@ docker compose up --build -d --wait
 
 Application: http://localhost:8080. API: http://localhost:8000/docs.
 
+Follow the backend logs:
+
+```sh
+docker compose logs -f backend
+```
+
 ```sh
 docker compose down
 ```
