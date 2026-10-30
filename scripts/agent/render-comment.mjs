@@ -8,7 +8,7 @@ export const MARKER = '<!-- taskly-test-agent -->';
 // Agent text is untrusted: no HTML, images, links or @mentions
 export function clean(value, max = 300) {
   const text = String(value ?? '')
-    .replace(/<[^>]*>?/g, '')
+    .replace(/<[a-zA-Z!/?][^>]*>?/g, '')
     .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
     .replace(/@(?=[\w-])/g, '@​')
     .replace(/\s+/g, ' ')

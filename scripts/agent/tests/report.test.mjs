@@ -48,6 +48,11 @@ test('strips HTML, images, links and mentions from agent text', () => {
   assert.equal(clean('x'.repeat(50), 10).length, 10);
 });
 
+test('keeps comparison operators in agent text', () => {
+  assert.equal(clean('changed `<` to `<=`, so a < b and b > a'), 'changed `<` to `<=`, so a < b and b > a');
+  assert.equal(clean('a <script>alert(1)</script> b <b'), 'a alert(1) b');
+});
+
 test('renders a sticky comment with decisions and verification results', () => {
   const verify = { ok: true, stage: 'done', validation: { ok: true, errors: [] }, packages: { backend: {
     typecheck: { ok: true }, thresholdsMet: true, full: { total: 60, passed: 60, failed: 0, failures: [] },
