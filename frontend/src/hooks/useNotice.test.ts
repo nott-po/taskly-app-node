@@ -10,12 +10,12 @@ it('starts without a notice and exposes a notification callback', () => {
   expect(result.current.notify).toEqual(expect.any(Function))
 })
 
-it('shows a notice and clears it after 4 seconds', () => {
+it('shows a notice and clears it after 6 seconds', () => {
   vi.useFakeTimers()
   const { result } = renderHook(() => useNotice())
   act(() => result.current.notify('Saved.'))
   expect(result.current.message).toBe('Saved.')
-  act(() => vi.advanceTimersByTime(3999))
+  act(() => vi.advanceTimersByTime(5999))
   expect(result.current.message).toBe('Saved.')
   act(() => vi.advanceTimersByTime(1))
   expect(result.current.message).toBe('')
@@ -25,11 +25,11 @@ it('restarts the timer when a new notice replaces the current one', () => {
   vi.useFakeTimers()
   const { result } = renderHook(() => useNotice())
   act(() => result.current.notify('First'))
-  act(() => vi.advanceTimersByTime(3000))
+  act(() => vi.advanceTimersByTime(4000))
   act(() => result.current.notify('First'))
-  act(() => vi.advanceTimersByTime(3000))
+  act(() => vi.advanceTimersByTime(5999))
   expect(result.current.message).toBe('First')
-  act(() => vi.advanceTimersByTime(1000))
+  act(() => vi.advanceTimersByTime(1))
   expect(result.current.message).toBe('')
 })
 
