@@ -1,5 +1,7 @@
 # Taskly App Node
 
+A Claude Code agent writes and updates the unit tests on every pull request. See [SOLUTION.md](SOLUTION.md) for how it works and [docs/evidence](docs/evidence) for its runs.
+
 ## Setup
 
 ```sh
